@@ -8,7 +8,6 @@ import {
   FormMessage,
 } from "../../../../components/ui/form";
 import { Input } from "../../../../components/ui/input";
-import { RotatingLines } from "react-loader-spinner";
 import { ChevronRightIcon, ChevronLeftIcon } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -55,20 +54,7 @@ export function AddCategory({ onBack }: { onBack: () => void }) {
               <ChevronLeftIcon size={18} /> Back
             </Button>
             <Button className="bg-red-500 border border-red-500 hover:bg-white hover:text-red-500 cursor-pointer">
-              {loading ? (
-                <RotatingLines
-                  visible={true}
-                  width="20"
-                  strokeWidth="5"
-                  animationDuration="0.75"
-                  ariaLabel="rotating-lines-loading"
-                  strokeColor="white"
-                />
-              ) : (
-                <>
-                  SAVE <ChevronRightIcon size={18} />
-                </>
-              )}
+              SAVE <ChevronRightIcon size={18} />
             </Button>
           </div>
         </form>
