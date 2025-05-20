@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { DotIcon as DotsVertical, Plus } from "lucide-react";
+// import { useState } from "react";
+import { Plus } from "lucide-react";
+import { EllipsisVertical } from "lucide-react";
 
 import { Button } from "../../components/ui/button";
 import { Input } from "../../components/ui/input";
@@ -115,23 +116,22 @@ const notifications = [
 ];
 
 export function Notification() {
-  const [currentPage, setCurrentPage] = useState(1);
+  // const [currentPage, setCurrentPage] = useState(1);
 
   return (
-    <div className="w-full h-screen mx-auto p-4 bg-white rounded-lg shadow-sm">
+    <div className=" p-2 border border-gray-400 rounded-sm ">
       {/* Header Section */}
-      <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-6">
-        <h1 className="text-xl font-semibold text-left w-full md:w-auto">
-          User Onboard Info
-        </h1>
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+        <h1 className="text-xl font-semibold">Notification</h1>
 
-        <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
-          <div className="relative w-full sm:w-64">
+        <div className="flex flex-col gap-2 sm:flex-row">
+          <div className="relative">
             <Input
               type="text"
               placeholder="Start Searching User Here..."
-              className="pl-8 w-full"
+              className="pl-8"
             />
+
             <div className="absolute left-2 top-1/2 -translate-y-1/2 text-gray-400">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -150,9 +150,9 @@ export function Notification() {
             </div>
           </div>
 
-          <div className="w-full sm:w-auto">
+          <div className="w-full sm:w-auto ">
             <Select defaultValue="2025/02/21 to 2025/03/30">
-              <SelectTrigger className="w-full sm:w-64">
+              <SelectTrigger className="w-full">
                 <SelectValue placeholder="2025/02/21 to 2025/03/30" />
               </SelectTrigger>
               <SelectContent>
@@ -168,17 +168,17 @@ export function Notification() {
               </SelectContent>
             </Select>
           </div>
+          <Link to={"add"}>
+            <Button className="bg-red-500 hover:bg-red-600 text-white w-full sm:w-auto cursor-pointer">
+              <Plus className="h-4 w-4 mr-2" /> Add Notification
+            </Button>
+          </Link>
         </div>
-        <Link to={"add"}>
-          <Button className="bg-red-500 hover:bg-red-600 text-white w-full sm:w-auto">
-            <Plus className="h-4 w-4 mr-2" /> Add Notification
-          </Button>
-        </Link>
       </div>
 
       {/* Table Section to be created later differently as as common table for the whole app will be created*/}
       {/* Table Section */}
-      <div className="w-full overflow-x-auto rounded-md">
+      <div className="overflow-x-auto rounded-md">
         <Table>
           <TableHeader className="bg-gray-50">
             <TableRow>
@@ -221,76 +221,75 @@ export function Notification() {
                 <TableCell>{notification.grade}</TableCell>
                 <TableCell className="text-center">
                   <Button variant="ghost" size="icon" className="h-8 w-8">
-                    <DotsVertical className="h-4 w-4" />
+                    <EllipsisVertical className="h-4 w-4" />
                   </Button>
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
-      </div>
-
-      {/* Pagination Section */}
-      <div className="flex flex-col sm:flex-row justify-end mt-4 gap-4">
-        <div className="flex gap-1">
-          <Button
-            variant="outline"
-            size="icon"
-            className="h-8 w-8"
-            disabled={currentPage === 1}
-            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-          >
-            <span className="sr-only">Previous page</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polyline points="15 18 9 12 15 6"></polyline>
-            </svg>
-          </Button>
-
-          {[1, 2, 3, 4, 5].map((page) => (
+        {/* Pagination Section */}
+        {/* <div className="flex justify-end mt-4">
+          <div className="flex gap-1">
             <Button
-              key={page}
-              variant={currentPage === page ? "default" : "outline"}
+              variant="outline"
               size="icon"
               className="h-8 w-8"
-              onClick={() => setCurrentPage(page)}
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             >
-              {page}
+              <span className="sr-only">Previous page</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
             </Button>
-          ))}
 
-          <Button
-            variant="outline"
-            size="icon"
-            className="h-8 w-8"
-            disabled={currentPage === 5}
-            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, 5))}
-          >
-            <span className="sr-only">Next page</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+            {[1, 2, 3, 4, 5, 6].map((page) => (
+              <Button
+                key={page}
+                variant={currentPage === page ? "default" : "outline"}
+                size="icon"
+                className="h-8 w-8"
+                onClick={() => setCurrentPage(page)}
+              >
+                {page}
+              </Button>
+            ))}
+
+            <Button
+              variant="outline"
+              size="icon"
+              className="h-8 w-8"
+              disabled={currentPage === 5}
+              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, 5))}
             >
-              <polyline points="9 18 15 12 9 6"></polyline>
-            </svg>
-          </Button>
-        </div>
+              <span className="sr-only">Next page</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </Button>
+          </div>
+        </div> */}
       </div>
     </div>
   );

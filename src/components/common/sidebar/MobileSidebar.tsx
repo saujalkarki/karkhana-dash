@@ -15,13 +15,11 @@ export default function MobileSidebar() {
         <MenuIcon />
       </SheetTrigger>
       <SheetContent side="left" className="!px-0 bg-red-500">
-        <div className="flex items-center justify-center ">
-          <img
-            src={logo}
-            alt=""
-            className="px-3 object-center font-bold py-4 h-16"
-          />
-          <h4 className="text-white text-lg font-medium">Science Karkhana</h4>
+        <div className="flex items-center justify-center gap-3 mx-2 mt-8 mb-3">
+          <img src={logo} alt="" className=" object-center font-bold h-7" />
+          <h4 className="text-white text-lg sm:text-xl font-medium">
+            Science Karkhana
+          </h4>
         </div>
         <Separator />
         <div className="space-y-4 py-2 ">

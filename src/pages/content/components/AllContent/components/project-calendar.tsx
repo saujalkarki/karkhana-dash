@@ -69,7 +69,7 @@ function ProjectCalendar() {
   const lastRowStart = totalCells - (totalCells % 7 || 7);
 
   return (
-    <section className="max-w-[40%] sm:max-w-full">
+    <section className="">
       <div className="grid grid-cols-7">
         {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day, i) => (
           <div

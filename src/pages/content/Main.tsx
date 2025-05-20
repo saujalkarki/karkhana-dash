@@ -16,24 +16,22 @@ export function Content({
   contentType: "image" | "video" | "text";
 }) {
   return (
-    <div className="container p-2">
-      <Card className="w-full">
-        <CardHeader>
-          <CardTitle>Add Content</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-6">
-          <ContentForm />
-          {contentType === "image" && <ContentImage />}
-          {contentType === "video" && <ContentVideo />}
+    <Card className="container w-full ">
+      <CardHeader>
+        <CardTitle className="text-xl font-semibold">Add Content</CardTitle>
+      </CardHeader>
+      <CardContent className="space-y-6">
+        <ContentForm />
+        {contentType === "image" && <ContentImage />}
+        {contentType === "video" && <ContentVideo />}
 
-          <ContentEditor />
-          {/* Save Button */}
-          <Button className="w-full bg-red-600 hover:bg-red-700 text-white">
-            Save
-          </Button>
-        </CardContent>
-      </Card>
-    </div>
+        <ContentEditor />
+        {/* Save Button */}
+        <Button className="w-full bg-red-600 hover:bg-red-700 text-white">
+          Save
+        </Button>
+      </CardContent>
+    </Card>
   );
 }
 

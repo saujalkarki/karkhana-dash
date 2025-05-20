@@ -35,7 +35,6 @@ export default function NavItems({ items, setOpen }: NavItemsProps) {
                     item.disabled && "cursor-not-allowed opacity-80"
                   )}
                   onClick={() => {
-                    if (setOpen) setOpen(false);
                     toggleMenu(index);
                   }}
                 >

@@ -34,56 +34,7 @@ const categoryData = [
 
 function DashChart() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:grid-cols-4">
-      {/* User Onboard Chart */}
-      {/* <Card className="col-span-1 lg:col-span-3">
-        <CardHeader>
-          <CardTitle>Total User Onboard</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="h-[300px]">
-            <ChartContainer
-              config={{
-                users: {
-                  label: "Users",
-                  color: "hsl(142.1, 76.2%, 36.3%)",
-                },
-              }}
-            >
-              <ResponsiveContainer>
-                <LineChart data={chartData} margin={{ left: 5 }}>
-                  <XAxis
-                    dataKey="month"
-                    axisLine={false}
-                    tickLine={false}
-                    tickMargin={10}
-                  />
-                  <YAxis
-                    axisLine={false}
-                    tickLine={false}
-                    tickMargin={10}
-                    domain={[0, 30]}
-                    ticks={[0, 10, 20, 30]}
-                  />
-                  <ChartTooltip content={<ChartTooltipContent />} />
-                  <Line
-                    type="monotone"
-                    dataKey="users"
-                    stroke="hsl(142.1, 76.2%, 36.3%)"
-                    strokeWidth={2}
-                    dot={{ r: 4, strokeWidth: 2, fill: "white" }}
-                    activeDot={{
-                      r: 6,
-                      strokeWidth: 0,
-                      fill: "hsl(142.1, 76.2%, 36.3%)",
-                    }}
-                  />
-                </LineChart>
-              </ResponsiveContainer>
-            </ChartContainer>
-          </div>
-        </CardContent>
-      </Card> */}
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 lg:grid-cols-5 ">
       <Card className="col-span-full sm:col-span-2 lg:col-span-3">
         <CardHeader>
           <CardTitle className="text-base sm:text-lg lg:text-xl">
@@ -91,7 +42,7 @@ function DashChart() {
           </CardTitle>
         </CardHeader>
         <CardContent className="overflow-hidden">
-          <div className="h-[250px] sm:h-[300px] w-full max-w-full">
+          <div className="h-full">
             <ChartContainer
               config={{
                 users: {
@@ -135,9 +86,11 @@ function DashChart() {
       </Card>
 
       {/* Content Category */}
-      <Card>
+      <Card className="lg:col-span-2">
         <CardHeader>
-          <CardTitle>Content Category</CardTitle>
+          <CardTitle className="text-base sm:text-lg lg:text-xl">
+            Content Category
+          </CardTitle>
         </CardHeader>
         <CardContent className="space-y-6">
           {categoryData.map((category) => (

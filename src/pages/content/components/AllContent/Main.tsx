@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Search, ChevronDown } from "lucide-react";
+import { Search } from "lucide-react";
 import { Input } from "../../../../components/ui/input";
 import {
   Select,
@@ -16,12 +16,12 @@ function AllContent() {
   const [activeTab, setActiveTab] = useState("all");
 
   return (
-    <div className="w-full bg-white border border-gray-300">
+    <div className="w-full border border-gray-400 rounded-sm">
       <div className="border-b ">
-        <div className="flex items-center px-4 py-2">
+        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 p-3">
           <div className="flex space-x-4 cursor-pointer">
             <button
-              className={`px-4 py-2 text-sm font-medium ${
+              className={`px-4 py-2 text-sm font-medium cursor-pointer ${
                 activeTab === "all"
                   ? "text-red-500 border-b-2 border-red-500"
                   : "text-gray-500"
@@ -31,7 +31,7 @@ function AllContent() {
               All Content
             </button>
             <button
-              className={`px-4 py-2 text-sm font-medium ${
+              className={`px-4 py-2 text-sm font-medium cursor-pointer ${
                 activeTab === "scheduled"
                   ? "text-red-500 border-b-2 border-red-500"
                   : "text-gray-500"
@@ -41,7 +41,7 @@ function AllContent() {
               Scheduled Calendar
             </button>
           </div>
-          <div className="ml-auto flex items-center space-x-2">
+          <div className="flex flex-col md:flex-row gap-2 space-x-2">
             <div className="relative">
               <Search className="absolute left-2 top-1/2 h-4 w-4 -translate-y-1/2 text-gray-500" />
               <Input
@@ -59,10 +59,16 @@ function AllContent() {
                 <SelectItem value="oldest">Oldest</SelectItem>
               </SelectContent>
             </Select>
-            <div className="flex items-center border rounded h-8 px-2 text-sm">
-              <span>09/05/23 to 09/05/23</span>
-              <ChevronDown className="ml-1 h-4 w-4" />
-            </div>
+            <Select defaultValue="default">
+              <SelectTrigger className="h-8 w-52 text-sm">
+                <SelectValue placeholder="Filter" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="default">09/05/20 to 09/05/21</SelectItem>
+                <SelectItem value="recent">09/05/22 to 09/05/23</SelectItem>
+                <SelectItem value="oldest">09/05/24 to 09/05/25</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
         </div>
       </div>
@@ -70,8 +76,8 @@ function AllContent() {
         {activeTab === "all" ? (
           <ContentView />
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-8 gap-2">
-            <div className="border border-[#A8A8A8] p-4 lg:col-span-5 flex flex-col">
+          <div className="grid grid-cols-1 lg:grid-cols-8 gap-2 p-2">
+            <div className=" p-4 lg:col-span-5 flex flex-col">
               <CalendarView />
             </div>
             <div className="col-span-3">

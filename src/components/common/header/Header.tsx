@@ -16,9 +16,11 @@ export default function Header() {
               <div className="border-2 rounded-full p-1">
                 <FaArrowLeft />
               </div>
-              <Link to={"/dashboard/home"} className="font-semibold">
-                Dashboard
-              </Link>
+              <div>
+                <Link to={"/dashboard/home"} className="font-semibold">
+                  Dashboard
+                </Link>
+              </div>
             </div>
 
             <img

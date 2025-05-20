@@ -1,21 +1,20 @@
 import { Outlet } from "react-router-dom";
 import Sidebar from "../common/sidebar/Sidebar";
-import { ScrollArea } from "../ui/scroll-area";
 import Header from "../common/header/Header";
 
 function DashboardLayout() {
   return (
-    <div className="bg-background">
-      <div className="flex h-screen overflow-hidden">
-        <Sidebar />
-        <div className="flex flex-col w-full">
-          <Header />
-          <ScrollArea className="w-full p-2 h-full">
+    <main className="bg-background grid lg:grid-cols-[260px_1fr] min-h-screen md:h-screen overflow-hidden">
+      <Sidebar />
+      <div className={`flex flex-col overflow-hidden`}>
+        <Header />
+        <div className="flex-1 overflow-y-auto">
+          <div className="p-4">
             <Outlet />
-          </ScrollArea>
+          </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 

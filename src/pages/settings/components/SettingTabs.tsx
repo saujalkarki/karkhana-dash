@@ -25,7 +25,7 @@ const SettingTabs = () => {
       onValueChange={setActiveTab}
     >
       <ScrollArea>
-        <TabsList className="flex flex-col h-full gap-3 items-center bg-slate-200 justify-between md:w-[250px] p-4">
+        <TabsList className="flex flex-col h-full gap-3 items-center bg-slate-200 justify-between w-full sm:w-[250px] p-4">
           {settings?.map((setting, index) => (
             <TabsTrigger
               key={index}

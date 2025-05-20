@@ -54,7 +54,7 @@ export function AddCategory({ onBack }: { onBack: () => void }) {
               <ChevronLeftIcon size={18} /> Back
             </Button>
             <Button className="bg-red-500 border border-red-500 hover:bg-white hover:text-red-500 cursor-pointer">
-              SAVE <ChevronRightIcon size={18} />
+              Save <ChevronRightIcon size={18} />
             </Button>
           </div>
         </form>
